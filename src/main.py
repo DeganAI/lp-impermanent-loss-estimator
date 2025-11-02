@@ -126,6 +126,11 @@ async def root():
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>LP Impermanent Loss Estimator</title>
+        <meta name="description" content="Calculate impermanent loss and fee APR for any LP position via x402 micropayments">
+        <meta property="og:title" content="LP Impermanent Loss Estimator">
+        <meta property="og:description" content="Calculate impermanent loss and fee APR for any LP position via x402 micropayments">
+        <meta property="og:image" content="https://lp-impermanent-loss-estimator-production-62b5.up.railway.app/favicon.ico">
+        <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💧</text></svg>">
         <style>
             * {{ margin: 0; padding: 0; box-sizing: border-box; }}
             body {{
@@ -561,6 +566,14 @@ async def x402_metadata():
     }
 
     return JSONResponse(content=metadata, status_code=402)
+
+
+@app.get("/favicon.ico")
+async def favicon():
+    """Favicon endpoint"""
+    from fastapi.responses import Response
+    svg_content = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">💧</text></svg>'
+    return Response(content=svg_content, media_type="image/svg+xml")
 
 
 # Health Check
