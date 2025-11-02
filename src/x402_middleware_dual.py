@@ -160,6 +160,21 @@ class X402Middleware(BaseHTTPMiddleware):
                     "payTo": self.payment_address,
                     "maxTimeoutSeconds": 30,
                     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",  # USDC on Base
+                    "outputSchema": {
+                        "input": {
+                            "type": "http",
+                            "method": "POST",
+                            "bodyType": "json",
+                            "bodyFields": {
+                                "pool_address": {"type": "string", "required": True, "description": "LP pool address"},
+                                "token_weights": {"type": "array", "required": False, "description": "Token weight distribution"},
+                                "deposit_amounts": {"type": "array", "required": False, "description": "Amount of each token in position"},
+                                "chain": {"type": "number", "required": True, "description": "Chain ID"},
+                                "window_hours": {"type": "number", "required": True, "description": "Time window for analysis"}
+                            }
+                        },
+                        "output": {"type": "object", "description": "Impermanent loss and fee APR calculations"}
+                    }
                 }
             ]
         }
@@ -225,6 +240,21 @@ class X402Middleware(BaseHTTPMiddleware):
                         "payTo": self.payment_address,
                         "maxTimeoutSeconds": 30,
                         "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+                        "outputSchema": {
+                            "input": {
+                                "type": "http",
+                                "method": "POST",
+                                "bodyType": "json",
+                                "bodyFields": {
+                                    "pool_address": {"type": "string", "required": True, "description": "LP pool address"},
+                                    "token_weights": {"type": "array", "required": False, "description": "Token weight distribution"},
+                                    "deposit_amounts": {"type": "array", "required": False, "description": "Amount of each token in position"},
+                                    "chain": {"type": "number", "required": True, "description": "Chain ID"},
+                                    "window_hours": {"type": "number", "required": True, "description": "Time window for analysis"}
+                                }
+                            },
+                            "output": {"type": "object", "description": "Impermanent loss and fee APR calculations"}
+                        }
                     }]
                 }
             )
