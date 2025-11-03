@@ -133,3 +133,4 @@ console.log(`🚀 LP Impermanent Loss Estimator running on port ${process.env.PO
 console.log(`📝 Manifest: ${process.env.BASE_URL}/.well-known/agent.json`);
 console.log(`💰 Payment address: ${config.payments?.payTo}`);
 
+
