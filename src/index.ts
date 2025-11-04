@@ -37,7 +37,7 @@ const { app, addEntrypoint, config } = createAgentApp(
         payTo: "0x01D11F7e1a46AbFC6092d7be484895D2d505095c",
         network: "base",
         asset: "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-        defaultPrice: "40000", // 0.04 USDC
+        defaultPrice: "$0.04", // 0.04 USDC
       },
     },
     useConfigPayments: true,
@@ -106,7 +106,7 @@ addEntrypoint({
   description: "Calculate impermanent loss and fee APR for LP positions with accurate yield estimates",
   input: ILInputSchema,
   output: ILOutputSchema,
-  price: "40000", // 0.04 USDC
+  price: "$0.04", // 0.04 USDC
   async handler({ input }) {
     const result = calculateImpermanentLoss(
       input.current_price_ratio,
