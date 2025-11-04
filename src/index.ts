@@ -102,7 +102,7 @@ function calculateImpermanentLoss(
 
 // Register entrypoint
 addEntrypoint({
-  key: "lp-il-estimator",
+  key: "lp-impermanent-loss-estimator",
   description: "Calculate impermanent loss and fee APR for LP positions with accurate yield estimates",
   input: ILInputSchema,
   output: ILOutputSchema,
